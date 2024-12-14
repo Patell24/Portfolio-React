@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { TiThMenuOutline } from "react-icons/ti";
 import { FaSkullCrossbones } from "react-icons/fa";
+import { Link } from "react-scroll";
 
 function Navbar() {
   const [menu, setMenu] = useState(false);
@@ -48,8 +49,18 @@ function Navbar() {
                 <li
                   className="hover:scale-105 duration-200 cursor-pointer"
                   key={id}
-                  
-                >{text}</li>
+                >
+                  <Link
+                    onClick={() => setMenu(!menu)}
+                    to={text}
+                    smooth={true}
+                    duration={500}
+                    offset={-70}
+                    activeClass="active"
+                  >
+                    {text}
+                  </Link>
+                </li>
               ))}
             </ul>
             <div onClick={() => setMenu(!menu)} className="md:hidden">
@@ -69,7 +80,18 @@ function Navbar() {
                 <li
                   className="hover:scale-105 duration-200 font-semibold cursor-pointer"
                   key={id}
-                >{text}</li>
+                >
+                  <Link
+                    onClick={() => setMenu(!menu)}
+                    to={text}
+                    smooth={true}
+                    duration={500}
+                    offset={-70}
+                    activeClass="active"
+                  >
+                    {text}
+                  </Link>
+                </li>
               ))}
             </ul>
           </div>
